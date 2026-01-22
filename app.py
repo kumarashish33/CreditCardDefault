@@ -24,7 +24,7 @@ st.set_page_config(
 st.title("Machine Learning Classification Models Comparison")
 
 # Upload Dataset
-st.sidebar.header("📂 Upload Dataset")
+st.sidebar.header("Upload Dataset")
 
 uploaded_file = st.sidebar.file_uploader(
     "Upload CSV Dataset",
@@ -38,7 +38,7 @@ if uploaded_file is None:
 df = pd.read_csv(uploaded_file)
 df.rename(columns={"default.payment.next.month": "target"}, inplace=True)
 
-st.subheader("📄 Dataset Preview")
+st.subheader("Dataset Preview")
 st.write(df.head())
 
 # Target Column 
@@ -66,7 +66,7 @@ X_test_scaled = scaler.transform(X_test)
 # ---------------------------------
 # Model Selection
 # ---------------------------------
-st.sidebar.header("⚙️ Model Selection")
+st.sidebar.header("Model Selection")
 
 model_name = st.sidebar.selectbox(
     "Choose Classification Model",
@@ -116,7 +116,7 @@ else:
 # ---------------------------------
 # Display Metrics
 # ---------------------------------
-st.subheader("📊 Evaluation Metrics")
+st.subheader("Evaluation Metrics")
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Accuracy", f"{metrics['Accuracy']:.4f}")
@@ -131,7 +131,7 @@ col6.metric("MCC", f"{metrics['MCC']:.4f}")
 # ---------------------------------
 # Confusion Matrix
 # ---------------------------------
-st.subheader("📉 Confusion Matrix")
+st.subheader("Confusion Matrix")
 
 cm = confusion_matrix(y_test, y_pred)
 
@@ -145,5 +145,5 @@ st.pyplot(fig)
 # ---------------------------------
 # Classification Report
 # ---------------------------------
-st.subheader("📄 Classification Report")
+st.subheader("Classification Report")
 st.text(classification_report(y_test, y_pred))
