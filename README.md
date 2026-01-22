@@ -56,13 +56,9 @@ ________________________________________________________________________________
 | ML Model            | Observation about Model Performance |
 |---------------------|-------------------------------------|
 | Logistic Regression | Performs well as a baseline model and provides stable results, but struggles to capture complex non-linear relationships. |
-
 | Decision Tree       | Captures non-linear patterns but is prone to overfitting, leading to slightly unstable performance. |
-
 | KNN                 | Performance depends on feature scaling and choice of k; works reasonably well but is computationally expensive. |
-
 | Naive Bayes         | Fast and simple model, but performance is limited due to strong independence assumptions. |
-
 | Random Forest       | Provides improved performance and robustness by combining multiple decision trees, reducing overfitting. |
 
 | XGBoost             | Achieves the best overall performance by effectively handling non-linear relationships and feature interactions. |
