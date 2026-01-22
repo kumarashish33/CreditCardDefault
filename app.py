@@ -23,6 +23,7 @@ st.set_page_config(
 
 st.title("Machine Learning Classification Models Comparison")
 
+
 # Upload Dataset
 st.sidebar.header("Upload Dataset")
 
@@ -41,6 +42,7 @@ df.rename(columns={"default.payment.next.month": "target"}, inplace=True)
 st.subheader("Dataset Preview")
 st.write(df.head())
 
+
 # Target Column 
 st.sidebar.header("Target Column")
 target_col = "target"
@@ -48,9 +50,8 @@ target_col = "target"
 X = df.drop(target_col, axis=1)
 y = df[target_col]
 
-# ---------------------------------
+
 # Train-Test Split
-# ---------------------------------
 X_train, X_test, y_train, y_test = train_test_split(
     X, y,
     test_size=0.2,
@@ -58,14 +59,14 @@ X_train, X_test, y_train, y_test = train_test_split(
     stratify=y
 )
 
+
 # Scaling (used where required)
 scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-# ---------------------------------
+
 # Model Selection
-# ---------------------------------
 st.sidebar.header("Model Selection")
 
 model_name = st.sidebar.selectbox(
@@ -80,9 +81,8 @@ model_name = st.sidebar.selectbox(
     )
 )
 
-# ---------------------------------
+
 # Train Selected Model
-# ---------------------------------
 if model_name == "Logistic Regression":
     model, metrics, y_pred = train_logistic_regression(
         X_train_scaled, X_test_scaled, y_train, y_test
@@ -113,9 +113,8 @@ else:
         X_train, X_test, y_train, y_test
     )
 
-# ---------------------------------
+
 # Display Metrics
-# ---------------------------------
 st.subheader("Evaluation Metrics")
 
 col1, col2, col3 = st.columns(3)
@@ -128,9 +127,8 @@ col4.metric("Recall", f"{metrics['Recall']:.4f}")
 col5.metric("F1 Score", f"{metrics['F1']:.4f}")
 col6.metric("MCC", f"{metrics['MCC']:.4f}")
 
-# ---------------------------------
+
 # Confusion Matrix
-# ---------------------------------
 st.subheader("Confusion Matrix")
 
 cm = confusion_matrix(y_test, y_pred)
@@ -142,8 +140,7 @@ ax.set_ylabel("Actual")
 
 st.pyplot(fig)
 
-# ---------------------------------
+
 # Classification Report
-# ---------------------------------
 st.subheader("Classification Report")
 st.text(classification_report(y_test, y_pred))

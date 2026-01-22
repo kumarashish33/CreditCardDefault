@@ -40,4 +40,31 @@ Each model was evaluated using the following metrics:
 
 ************************************************************************************************
 
+## Model Comparison Table
+_________________________________________________________________________________________
+| ML Model            | Accuracy | AUC      | Precision| Recall | F1 Score | MCC      |
+| Logistic Regression | 0.8080   | 0.7078   | 0.6882   | 0.2411 | 0.3571   | 0.3261   |
+| Decision Tree       | 0.7258   | 0.6138   | 0.3876   | 0.4130 | 0.3999   | 0.2226   |
+| KNN                 | 0.7935   | 0.6942   | 0.5530   | 0.3459 | 0.4256   | 0.3204   |
+| Naive Bayes         | 0.7523   | 0.7251   | 0.4513   | 0.5554 | 0.4980   | 0.3391   |
+| Random Forest       | 0.8147   | 0.7564   | 0.6420   | 0.3662 | 0.4664   | 0.3853   |
+| XGBoost             | 0.8090   | 0.7590   | 0.6162   | 0.3617 | 0.4558   | 0.3676   |
+_________________________________________________________________________________________
 
+## Model Observations
+
+| ML Model            | Observation about Model Performance |
+|---------------------|-------------------------------------|
+| Logistic Regression | Performs well as a baseline model and provides stable results, but struggles to capture complex non-linear relationships. |
+
+| Decision Tree       | Captures non-linear patterns but is prone to overfitting, leading to slightly unstable performance. |
+
+| KNN                 | Performance depends on feature scaling and choice of k; works reasonably well but is computationally expensive. |
+
+| Naive Bayes         | Fast and simple model, but performance is limited due to strong independence assumptions. |
+
+| Random Forest       | Provides improved performance and robustness by combining multiple decision trees, reducing overfitting. |
+
+| XGBoost             | Achieves the best overall performance by effectively handling non-linear relationships and feature interactions. |
+
+************************************************************************************************
