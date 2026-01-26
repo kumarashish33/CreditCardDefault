@@ -142,5 +142,15 @@ st.pyplot(fig)
 
 
 # Classification Report
+
+report_dict = classification_report(
+    y_test,
+    y_pred,
+    output_dict=True
+)
+
+report_df = pd.DataFrame(report_dict).transpose()
+
 st.subheader("Classification Report")
-st.text(classification_report(y_test, y_pred))
+st.dataframe(report_df.style.format("{:.2f}"))
+
