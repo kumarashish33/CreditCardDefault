@@ -44,7 +44,6 @@ st.write(df.head())
 
 
 # Target Column 
-st.sidebar.header("Target Column")
 target_col = "target"
 
 X = df.drop(target_col, axis=1)
